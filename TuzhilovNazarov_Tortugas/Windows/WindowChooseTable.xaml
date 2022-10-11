@@ -57,5 +57,17 @@
             Height="60"
             Width="60"
         />
+
+        <ListView x:Name="lvTables" 
+                  Grid.Row="1"
+                  Grid.ColumnSpan="3" MouseDoubleClick="lvTables_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Width="400">Номер столика</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=NumberOfSeats}" Width="400">Количество мест</GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
     </Grid>
 </Window>

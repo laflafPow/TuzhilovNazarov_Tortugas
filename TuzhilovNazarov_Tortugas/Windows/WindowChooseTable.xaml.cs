@@ -22,6 +22,22 @@ namespace TuzhilovNazarov_Tortugas.Windows
         public WindowChooseTable()
         {
             InitializeComponent();
+
+            List<EF.Table> listClient = new List<EF.Table>();
+
+            listClient = ClassHelper.AppData.Context.Table.ToList();
+            lvTables.ItemsSource = listClient;
+        }
+
+        private void lvTables_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lvTables.SelectedItem is EF.Table)
+            {
+                var table = lvTables.SelectedItem as EF.Table;
+
+                WindowMenu windowMenu = new WindowMenu();
+                windowMenu.ShowDialog();
+            }
         }
     }
 }

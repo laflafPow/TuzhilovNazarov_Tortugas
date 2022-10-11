@@ -23,6 +23,22 @@ namespace TuzhilovNazarov_Tortugas.Pages
         public PageCategoryProduct()
         {
             InitializeComponent();
+            _ = new List<EF.CategoryProduct>();
+
+            List<EF.CategoryProduct> listCategoryProduct = ClassHelper.AppData.Context.CategoryProduct.ToList();
+            lvCategoryProduct.ItemsSource = listCategoryProduct;
+        }
+
+        private void lvCategoryProduct_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lvCategoryProduct.SelectedItem is EF.CategoryProduct)
+            {
+                PageProduct page = new PageProduct();
+
+                // Navigate to the page, using the NavigationService
+                NavigationService.Navigate(page);
+
+            }
         }
     }
 }

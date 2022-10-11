@@ -22,6 +22,13 @@ namespace TuzhilovNazarov_Tortugas.Windows
         public WindowMenu()
         {
             InitializeComponent();
+
+            frameMenu.Source = new Uri("Pages/PageCategoryProduct.xaml", UriKind.Relative);
+        }
+
+        public void ChangePage()
+        {
+            frameMenu.Source = new Uri("Pages/PageProduct.xaml", UriKind.Relative);
         }
     }
 }
