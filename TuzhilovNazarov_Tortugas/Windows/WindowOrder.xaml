@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.125*"/>
+            <RowDefinition Height="0.105*"/>
             <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.125*"/>
@@ -26,8 +26,17 @@
         <Border
             Grid.ColumnSpan="3"
             Grid.Row="3"
-            Background="LightGray"
+            Background="#FFEFEFEF"
         />
+
+        <Border
+            Grid.ColumnSpan="3"
+            Grid.Row="0"
+        >
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/Header.png" Stretch="Uniform"/>
+            </Border.Background>
+        </Border>
 
         <Button 
             x:Name="btnChooseTable"
@@ -36,8 +45,12 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" BorderBrush="{x:Null}" Foreground="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/TableUnselected.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
         <Button 
             x:Name="btnMenu"
@@ -46,8 +59,12 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" BorderBrush="{x:Null}" Foreground="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Images/FoodUnSelected.png"/>
+            </Button.Background>
+        </Button>
 
         <Button 
             x:Name="btnOrder"
@@ -56,8 +73,12 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" Foreground="{x:Null}" BorderBrush="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/OrderSelected.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
         <ListView x:Name="lvOrder" 
                   Grid.Row="1"
@@ -92,7 +113,7 @@
             Grid.Row="2"
             Grid.Column="3"
             VerticalAlignment="Center">
-            
+
             <Button
                 x:Name="btnPay"
                 Width="130"

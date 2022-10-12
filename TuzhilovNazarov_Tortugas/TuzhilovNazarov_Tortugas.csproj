@@ -202,6 +202,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Header.png" />
+    <Resource Include="Images\FoodSelected.png" />
+    <Resource Include="Images\FoodUnSelected.png" />
+    <Resource Include="Images\OrderSelected.png" />
+    <Resource Include="Images\OrderUnselected.png" />
+    <Resource Include="Images\TableUnselected.png" />
+    <Resource Include="Images\table.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
