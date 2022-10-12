@@ -6,13 +6,16 @@
       xmlns:local="clr-namespace:TuzhilovNazarov_Tortugas.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageProduct">
+      Title="Продукты">
 
     <Grid>
-        <ListView x:Name="lvCategoryProduct" MouseDoubleClick="lvCategoryProduct_MouseDoubleClick">
+        <ListView x:Name="lvProduct" MouseDoubleClick="lvProduct_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=CategoryProduct1}" Width="800">Категории продукта</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="200">Продукт</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Cost}" Width="200">Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Width="200">Описание</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Weight}" Width="200">Вес</GridViewColumn>
                 </GridView>
             </ListView.View>
 

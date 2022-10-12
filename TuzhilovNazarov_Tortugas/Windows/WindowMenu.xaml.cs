@@ -30,5 +30,11 @@ namespace TuzhilovNazarov_Tortugas.Windows
         {
             frameMenu.Source = new Uri("Pages/PageProduct.xaml", UriKind.Relative);
         }
+
+        private void btnOrder_Click(object sender, RoutedEventArgs e)
+        {
+            WindowOrder windowOrder = new WindowOrder();
+            windowOrder.ShowDialog();
+        }
     }
 }

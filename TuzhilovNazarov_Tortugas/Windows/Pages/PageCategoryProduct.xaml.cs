@@ -33,7 +33,9 @@ namespace TuzhilovNazarov_Tortugas.Pages
         {
             if (lvCategoryProduct.SelectedItem is EF.CategoryProduct)
             {
-                PageProduct page = new PageProduct();
+                var CategoryProduct = lvCategoryProduct.SelectedItem as EF.CategoryProduct;
+
+                PageProduct page = new PageProduct(CategoryProduct.ID);
 
                 // Navigate to the page, using the NavigationService
                 NavigationService.Navigate(page);

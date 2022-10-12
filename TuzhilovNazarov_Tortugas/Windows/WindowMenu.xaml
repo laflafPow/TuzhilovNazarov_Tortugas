@@ -55,7 +55,8 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
+            Width="60" 
+            Click="btnOrder_Click"
         />
 
         <Frame x:Name="frameMenu" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="LimeGreen">

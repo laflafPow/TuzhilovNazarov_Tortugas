@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TuzhilovNazarov_Tortugas.ClassHelper;
 
 namespace TuzhilovNazarov_Tortugas.Windows
 {
@@ -34,6 +35,9 @@ namespace TuzhilovNazarov_Tortugas.Windows
             if (lvTables.SelectedItem is EF.Table)
             {
                 var table = lvTables.SelectedItem as EF.Table;
+
+                var orderInfo = new OrderInfo { TableID = table.ID, TotalCost = 0 };
+                ClassHelper.OrderInfoData.orderInfos.Add(orderInfo);
 
                 WindowMenu windowMenu = new WindowMenu();
                 windowMenu.ShowDialog();

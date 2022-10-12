@@ -67,7 +67,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=NumberOfSeats}" Width="400">Количество мест</GridViewColumn>
                 </GridView>
             </ListView.View>
-
         </ListView>
+        
     </Grid>
 </Window>
