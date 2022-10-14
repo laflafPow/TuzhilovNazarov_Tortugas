@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TuzhilovNazarov_Tortugas.Windows"
         mc:Ignorable="d"
         Title="Выбор столика" Height="1194" Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"  Background="#FFEDEDED">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -32,18 +32,24 @@
             </Border.Background>
         </Border>
 
+        <Image Source="/Images/logo.png"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Grid.RowSpan="2"
+               Grid.ColumnSpan="3" Height="153.95" Width="546"
+               Margin="0,25,0,0"/>
 
         <!--Меню навигации-->
         <Border Grid.ColumnSpan="3"
                 Grid.Row="2">
-            
+
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFEFEFEF"/>
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            
+
         </Border>
 
         <Button 
@@ -90,13 +96,103 @@
 
         <ListView x:Name="lvTables" 
                   Grid.Row="1"
-                  Grid.ColumnSpan="3" MouseDoubleClick="lvTables_MouseDoubleClick" BorderBrush="{x:Null}" Background="#FFEDEDED">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Width="400">Номер столика</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=NumberOfSeats}" Width="400">Количество мест</GridViewColumn>
-                </GridView>
-            </ListView.View>
+                  Grid.ColumnSpan="3" MouseDoubleClick="lvTables_MouseDoubleClick" BorderBrush="{x:Null}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Center"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                Width="570"
+                Height="183"
+                BorderThickness="1"
+                CornerRadius="20">
+
+                        <Border.Effect>
+                            <DropShadowEffect Opacity="0.3" 
+                                  BlurRadius="20" 
+                                  RenderingBias="Quality" 
+                                  ShadowDepth="2"/>
+                        </Border.Effect>
+
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="1"/>
+                                        <SkewTransform AngleX="0" CenterX="1" CenterY="0.5" AngleY="0"/>
+                                        <RotateTransform CenterX="1" CenterY="0.5" Angle="-11.129"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFEE6161" Offset="0"/>
+                                <GradientStop Color="#FFFFC9C9" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="Table number: "        
+                        Foreground="White" 
+                        FontFamily="Harrington"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        Margin="10 0 0 0"/>
+
+                            <TextBlock 
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="Number of seats: "        
+                        Foreground="White" 
+                        FontFamily="Harrington"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        Margin="10 0 0 0"/>
+
+                            <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding ID}"       
+                        Foreground="White" 
+                        FontFamily="Harrington"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        Margin="175 0 0 0"/>
+
+                            <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding NumberOfSeats}"
+                        Foreground="White" 
+                        FontFamily="Harrington"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        Margin="205 0 0 0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
     </Grid>
