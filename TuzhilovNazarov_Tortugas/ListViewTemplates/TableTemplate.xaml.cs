@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TuzhilovNazarov_Tortugas.Windows
+namespace TuzhilovNazarov_Tortugas.ListViewTemplates
 {
     /// <summary>
-    /// Логика взаимодействия для WindowNotifications.xaml
+    /// Логика взаимодействия для TableTemplate.xaml
     /// </summary>
-    public partial class WindowNotifications : Window
+    public partial class TableTemplate : Window
     {
-        public WindowNotifications()
+        public TableTemplate()
         {
             InitializeComponent();
         }

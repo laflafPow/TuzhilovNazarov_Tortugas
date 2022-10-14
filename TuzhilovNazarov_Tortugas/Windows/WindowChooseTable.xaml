@@ -20,13 +20,31 @@
             <RowDefinition Height="0.125*"/>
         </Grid.RowDefinitions>
 
-        
-        <!--Меню навигации-->
         <Border
             Grid.ColumnSpan="3"
-            Grid.Row="2"
-            Background="LightGray"
-        />
+            Grid.Row="0"
+        >
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEFEFEF"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <!--Меню навигации-->
+        <Border Grid.ColumnSpan="3"
+                Grid.Row="2">
+            
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEFEFEF"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            
+        </Border>
 
         <Button 
             x:Name="btnChooseTable"
@@ -35,8 +53,12 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" Foreground="{x:Null}" BorderBrush="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/table.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
         <Button 
             x:Name="btnMenu"
@@ -45,8 +67,12 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" BorderBrush="{x:Null}" Foreground="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/FoodUnSelected.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
         <Button 
             x:Name="btnOrder"
@@ -55,12 +81,16 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Height="60"
-            Width="60"
-        />
+            Width="60" Foreground="{x:Null}" BorderBrush="{x:Null}"
+        >
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/Images/OrderUnselected.png"/>
+            </Button.Background>
+        </Button>
 
         <ListView x:Name="lvTables" 
                   Grid.Row="1"
-                  Grid.ColumnSpan="3" MouseDoubleClick="lvTables_MouseDoubleClick">
+                  Grid.ColumnSpan="3" MouseDoubleClick="lvTables_MouseDoubleClick" BorderBrush="{x:Null}" Background="#FFEDEDED">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Width="400">Номер столика</GridViewColumn>
@@ -68,6 +98,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+
     </Grid>
 </Window>
