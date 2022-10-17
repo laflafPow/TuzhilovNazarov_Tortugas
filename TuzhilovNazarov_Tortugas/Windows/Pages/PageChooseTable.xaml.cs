@@ -10,17 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TuzhilovNazarov_Tortugas.ClassHelper;
+using TuzhilovNazarov_Tortugas.EF;
+using TuzhilovNazarov_Tortugas.Pages;
 
-namespace TuzhilovNazarov_Tortugas.Windows
+namespace TuzhilovNazarov_Tortugas.Windows.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WindowChooseTable.xaml
+    /// Логика взаимодействия для PageChooseTable.xaml
     /// </summary>
-    public partial class WindowChooseTable : Window
+    public partial class PageChooseTable : Page
     {
-        public WindowChooseTable()
+        public PageChooseTable()
         {
             InitializeComponent();
 
@@ -37,10 +40,12 @@ namespace TuzhilovNazarov_Tortugas.Windows
                 var table = lvTables.SelectedItem as EF.Table;
 
                 var orderInfo = new OrderInfo { TableID = table.ID, TotalCost = 0 };
-                ClassHelper.OrderInfoData.orderInfos.Add(orderInfo);
+                OrderInfoData.orderInfos.Add(orderInfo);
+                
+                WindowMain windowMain = new WindowMain();
+                PageCategoryProduct page = new PageCategoryProduct();
 
-                WindowMenu windowMenu = new WindowMenu();
-                windowMenu.ShowDialog();
+                NavigationService.Navigate(page);
             }
         }
     }

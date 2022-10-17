@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="TableTemplate" Height="450" Width="800">
     <Grid>
-        
         <Border
                 Width="570"
                 Height="183"

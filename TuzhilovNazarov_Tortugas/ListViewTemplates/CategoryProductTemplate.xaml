@@ -1,0 +1,38 @@
+﻿<Window x:Class="TuzhilovNazarov_Tortugas.ListViewTemplates.CategoryProductTemplate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TuzhilovNazarov_Tortugas.ListViewTemplates"
+        mc:Ignorable="d"
+        Title="CategoryProductTemplate" Height="450" Width="800">
+    <Grid>
+        <Border
+                Width="637"
+                Height="139.79">
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/Rectangle 6.png"/>
+            </Border.Background>
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="Напитки"        
+                    Foreground="White" 
+                    FontFamily="Cascadia Mono SemiBold"
+                    FontSize="64"/>
+
+                <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Text="{Binding ID}"       
+                        Foreground="White" 
+                        FontFamily="Harrington"
+                        FontSize="25"
+                        VerticalAlignment="Center"
+                        Margin="175 0 0 0"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -23,6 +23,7 @@ namespace TuzhilovNazarov_Tortugas.Pages
         public PageCategoryProduct()
         {
             InitializeComponent();
+
             _ = new List<EF.CategoryProduct>();
 
             List<EF.CategoryProduct> listCategoryProduct = ClassHelper.AppData.Context.CategoryProduct.ToList();

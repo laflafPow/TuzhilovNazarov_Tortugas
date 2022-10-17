@@ -28,6 +28,7 @@ namespace TuzhilovNazarov_Tortugas.EF
         public decimal Weight { get; set; }
         public decimal Discount { get; set; }
         public bool IsActive { get; set; }
+        public string PhotoPath { get; set; }
     
         public virtual CategoryProduct CategoryProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

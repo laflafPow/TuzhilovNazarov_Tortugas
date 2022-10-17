@@ -11,6 +11,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryProduct" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -34,6 +35,7 @@
           <Property Name="Weight" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="Discount" Type="decimal" Precision="3" Scale="2" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="ProductOrder">
           <Key>
@@ -58,6 +60,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="NumberOfSeats" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Order_Table">
@@ -215,7 +218,7 @@
             <End Role="Order" EntitySet="Order" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -234,6 +237,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryProduct1" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Product" Relationship="CafeTuzilovNazarov4ISP97Model.FK_Product_CategoryProduct" FromRole="CategoryProduct" ToRole="Product" />
+          <Property Name="PhotoPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -261,6 +265,7 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CategoryProduct" Relationship="CafeTuzilovNazarov4ISP97Model.FK_Product_CategoryProduct" FromRole="Product" ToRole="CategoryProduct" />
           <NavigationProperty Name="Order" Relationship="CafeTuzilovNazarov4ISP97Model.ProductOrder" FromRole="Product" ToRole="Order" />
+          <Property Name="PhotoPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -277,6 +282,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="NumberOfSeats" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="CafeTuzilovNazarov4ISP97Model.FK_Order_Table" FromRole="Table" ToRole="Order" />
         </EntityType>
@@ -308,7 +314,7 @@
           <End Type="CafeTuzilovNazarov4ISP97Model.Order" Role="Order" Multiplicity="*" />
           <End Type="CafeTuzilovNazarov4ISP97Model.Product" Role="Product" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -341,6 +347,7 @@
           <EntitySetMapping Name="CategoryProduct">
             <EntityTypeMapping TypeName="CafeTuzilovNazarov4ISP97Model.CategoryProduct">
               <MappingFragment StoreEntitySet="CategoryProduct">
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="CategoryProduct1" ColumnName="CategoryProduct" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -360,6 +367,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="CafeTuzilovNazarov4ISP97Model.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
@@ -386,6 +394,7 @@
             <EntityTypeMapping TypeName="CafeTuzilovNazarov4ISP97Model.Table">
               <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="NumberOfSeats" ColumnName="NumberOfSeats" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -398,7 +407,7 @@
               <ScalarProperty Name="ID" ColumnName="OrderID" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
