@@ -33,9 +33,9 @@ namespace TuzhilovNazarov_Tortugas.Windows
         {
             frameMain.Source = new Uri("Pages/PageChooseTable.xaml", UriKind.Relative);
 
-            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\table.png", UriKind.Relative));
-            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodUnselected.png", UriKind.Relative));
-            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderUnselected.png", UriKind.Relative));
+            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\table.png", UriKind.Relative));
+            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodUnSelected.png", UriKind.Relative));
+            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderUnselected.png", UriKind.Relative));
             imgHeader.Source = new BitmapImage(new Uri("/Images/logo.png", UriKind.Relative));
         }
 
@@ -43,9 +43,9 @@ namespace TuzhilovNazarov_Tortugas.Windows
         {
             frameMain.Source = new Uri("Pages/PageCategoryProduct.xaml", UriKind.Relative);
 
-            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodSelected.png", UriKind.Relative));
-            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\TableUnselected.png", UriKind.Relative));
-            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderUnselected.png", UriKind.Relative));
+            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodSelected.png", UriKind.Relative));
+            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\TableUnselected.png", UriKind.Relative));
+            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderUnselected.png", UriKind.Relative));
             imgHeader.Source = new BitmapImage(new Uri("/Images/HeaderMenu.png", UriKind.Relative));
         }
 
@@ -53,9 +53,9 @@ namespace TuzhilovNazarov_Tortugas.Windows
         {
             frameMain.Source = new Uri("Pages/PageOrder.xaml", UriKind.Relative);
 
-            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderSelected.png", UriKind.Relative));
-            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodUnselected.png", UriKind.Relative));
-            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\Никита поел\\source\\repos\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\TableUnselected.png", UriKind.Relative));
+            imgBtnOrder.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\OrderSelected.png", UriKind.Relative));
+            imgBtnMenu.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\FoodUnSelected.png", UriKind.Relative));
+            imgChooseTable.ImageSource = new BitmapImage(new Uri("C:\\Users\\IMac7\\Source\\Repos\\laflafPow\\TuzhilovNazarov_Tortugas\\TuzhilovNazarov_Tortugas\\Images\\TableUnselected.png", UriKind.Relative));
             imgHeader.Source = new BitmapImage(new Uri("/Images/HeaderBasket.png", UriKind.Relative));
         }
     }

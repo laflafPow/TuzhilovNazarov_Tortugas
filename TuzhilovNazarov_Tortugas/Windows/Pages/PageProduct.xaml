@@ -11,7 +11,7 @@
         <BitmapImage x:Key="NotFoundImage" UriSource="/Images/noimage.jpg" />
     </Page.Resources>
     <Grid>
-        <ListView x:Name="lvProduct" MouseDoubleClick="lvProduct_MouseDoubleClick"
+        <ListView x:Name="lvProduct"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   VerticalContentAlignment="Center"
@@ -121,7 +121,7 @@
                                 </TextBlock.RenderTransform>
                             </TextBlock>
                             <Button
-                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="2" Margin="62,114,72,-15" Grid.Row="1">
+                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="2" Margin="62,114,72,-15" Grid.Row="1" Click="btnAddToOrder_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/btnAddProductImage.png" Stretch="Uniform"/>
                                 </Button.Background>

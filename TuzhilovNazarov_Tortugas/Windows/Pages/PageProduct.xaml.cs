@@ -34,15 +34,30 @@ namespace TuzhilovNazarov_Tortugas.Pages
             lvProduct.ItemsSource = listProduct;
         }
 
-        private void lvProduct_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void btnAddToOrder_Click(object sender, RoutedEventArgs e)
         {
-            var product = lvProduct.SelectedItem as Product;
-            var preorder = new PreOrder { Name = product.Name, Cost = product.Cost, Count = 1, Description = product.Description};
-            ClassHelper.PreOrderData.pres.Add(preorder);
+            lvProduct.SelectedItem = (sender as Button).DataContext;
 
-            var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost};
-            OrderInfoData.orderInfos.RemoveAt(0);
-            OrderInfoData.orderInfos.Add(orderInfo);
+            var product = lvProduct.SelectedItem as Product;
+
+            var searchProduct = PreOrderData.pres.FirstOrDefault(p => p.Name == product.Name);
+
+            if (searchProduct != null)
+            {
+                searchProduct.Count += 1;
+                searchProduct.Cost += searchProduct.Cost;
+                PreOrderData.pres.RemoveAll(p => p.Name == product.Name);
+                PreOrderData.pres.Add(searchProduct);
+            }
+            else
+            {
+                var preorder = new PreOrder { Name = product.Name, Cost = product.Cost, Count = 1, Description = product.Description, PhotoPath = product.PhotoPath, Weight = product.Weight };
+                ClassHelper.PreOrderData.pres.Add(preorder);
+
+                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost };
+                OrderInfoData.orderInfos.RemoveAt(0);
+                OrderInfoData.orderInfos.Add(orderInfo);
+            }            
         }
     }
 }

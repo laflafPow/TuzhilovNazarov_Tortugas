@@ -13,6 +13,7 @@ namespace TuzhilovNazarov_Tortugas.ClassHelper
         public decimal Cost { get; set; }
         public decimal Weight { get; set; }
         public int Count { get; set; }
+        public string PhotoPath { get; set; }
     }
 }
 
