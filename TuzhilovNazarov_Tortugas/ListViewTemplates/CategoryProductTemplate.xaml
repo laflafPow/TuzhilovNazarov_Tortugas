@@ -11,27 +11,16 @@
                 Width="637"
                 Height="139.79">
             <Border.Background>
-                <ImageBrush ImageSource="/Images/Rectangle 6.png"/>
+                <ImageBrush ImageSource="{Binding PhotoPath}"/>
             </Border.Background>
             <Grid>
                 <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Text="Напитки"        
+                    Text="{Binding CategoryProduct}"        
                     Foreground="White" 
                     FontFamily="Cascadia Mono SemiBold"
                     FontSize="64"/>
-
-                <TextBlock
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Text="{Binding ID}"       
-                        Foreground="White" 
-                        FontFamily="Harrington"
-                        FontSize="25"
-                        VerticalAlignment="Center"
-                        Margin="175 0 0 0"/>
             </Grid>
         </Border>
     </Grid>

@@ -137,6 +137,12 @@
     <Compile Include="ListViewTemplates\CategoryProductTemplate.xaml.cs">
       <DependentUpon>CategoryProductTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListViewTemplates\OrderTemplate.xaml.cs">
+      <DependentUpon>OrderTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewTemplates\ProductTemplate.xaml.cs">
+      <DependentUpon>ProductTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListViewTemplates\TableTemplate.xaml.cs">
       <DependentUpon>TableTemplate.xaml</DependentUpon>
     </Compile>
@@ -154,12 +160,6 @@
     </Compile>
     <Compile Include="Windows\WindowMain.xaml.cs">
       <DependentUpon>WindowMain.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WindowMenu.xaml.cs">
-      <DependentUpon>WindowMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WindowOrder.xaml.cs">
-      <DependentUpon>WindowOrder.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +201,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ListViewTemplates\OrderTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListViewTemplates\ProductTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListViewTemplates\TableTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,14 +233,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\WindowMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\WindowOrder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -248,6 +248,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\Minus.png" />
+    <Resource Include="Images\noimage.jpg" />
+    <Resource Include="Images\btnAddProductImage.png" />
+    <Resource Include="Images\Vector 12.png" />
+    <Resource Include="Images\Rectangle 32.png" />
     <Resource Include="Images\Rectangle 6.png" />
     <Resource Include="Images\HeaderBasket.png" />
     <Resource Include="Images\HeaderMenu.png" />

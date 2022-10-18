@@ -75,7 +75,7 @@
             Height="60"
             Width="60" Foreground="{x:Null}"
             BorderBrush="{x:Null}" 
-            Click="btnChooseTable_Click">
+            Click="btnChooseTable_Click" Cursor="Hand">
             
             <Button.Background>
                 <ImageBrush x:Name="imgChooseTable" ImageSource="/Images/table.png" Stretch="Uniform"/>

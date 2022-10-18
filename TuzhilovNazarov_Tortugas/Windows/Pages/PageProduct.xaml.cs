@@ -40,7 +40,7 @@ namespace TuzhilovNazarov_Tortugas.Pages
             var preorder = new PreOrder { Name = product.Name, Cost = product.Cost, Count = 1, Description = product.Description};
             ClassHelper.PreOrderData.pres.Add(preorder);
 
-            var orderInfo = new OrderInfo { TableID = OrderInfoData.orderInfos.First().TableID, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost};
+            var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost};
             OrderInfoData.orderInfos.RemoveAt(0);
             OrderInfoData.orderInfos.Add(orderInfo);
         }

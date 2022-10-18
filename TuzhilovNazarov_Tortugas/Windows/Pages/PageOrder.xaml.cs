@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TuzhilovNazarov_Tortugas.ClassHelper;
 
 namespace TuzhilovNazarov_Tortugas.Windows.Pages
 {
@@ -23,6 +24,10 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
         public PageOrder()
         {
             InitializeComponent();
+
+            lvOrder.ItemsSource = PreOrderData.pres;
+            tbTotalCost.Text = $"Итоговая цена: {OrderInfoData.orderInfos.First().TotalCost}";
+            tbTableNumber.Text = $"Номер столика: {OrderInfoData.orderInfos.First().Name}";
         }
     }
 }

@@ -39,12 +39,10 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
             {
                 var table = lvTables.SelectedItem as EF.Table;
 
-                var orderInfo = new OrderInfo { TableID = table.ID, TotalCost = 0 };
+                var orderInfo = new OrderInfo { Name = table.Name, TotalCost = 0 };
                 OrderInfoData.orderInfos.Add(orderInfo);
-                
-                WindowMain windowMain = new WindowMain();
+                              
                 PageCategoryProduct page = new PageCategoryProduct();
-
                 NavigationService.Navigate(page);
             }
         }

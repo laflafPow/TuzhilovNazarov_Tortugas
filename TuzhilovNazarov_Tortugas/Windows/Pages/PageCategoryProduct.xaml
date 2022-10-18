@@ -9,13 +9,36 @@
       Title="Категории Продукта">
 
     <Grid>
-        <ListView x:Name="lvCategoryProduct" MouseDoubleClick="lvCategoryProduct_MouseDoubleClick">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=CategoryProduct1}" Width="800">Категории продукта</GridViewColumn>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="lvCategoryProduct" MouseDoubleClick="lvCategoryProduct_MouseDoubleClick"
+                  BorderBrush="{x:Null}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden">
 
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel HorizontalAlignment="Center"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Width="637"
+                        Height="139.79">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding PhotoPath}"/>
+                        </Border.Background>
+                        <Grid>
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="{Binding CategoryProduct1}"        
+                                Foreground="White" 
+                                FontFamily="Cascadia Mono SemiBold"
+                                FontSize="64"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

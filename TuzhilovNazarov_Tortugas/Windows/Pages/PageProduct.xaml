@@ -3,22 +3,133 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TuzhilovNazarov_Tortugas.Pages"
+      xmlns:local="clr-namespace:TuzhilovNazarov_Tortugas.Pages" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Продукты">
-
+    <Page.Resources>
+        <BitmapImage x:Key="NotFoundImage" UriSource="/Images/noimage.jpg" />
+    </Page.Resources>
     <Grid>
-        <ListView x:Name="lvProduct" MouseDoubleClick="lvProduct_MouseDoubleClick">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="200">Продукт</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Cost}" Width="200">Цена</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Width="200">Описание</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Weight}" Width="200">Вес</GridViewColumn>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="lvProduct" MouseDoubleClick="lvProduct_MouseDoubleClick"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  VerticalContentAlignment="Center"
+                  Margin="90 0 90 0">
 
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                Width="286"
+                Height="452"
+                CornerRadius="20" 
+                Background="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="0.5*"/>
+                            </Grid.RowDefinitions>
+
+                            <Border 
+                    Grid.ColumnSpan="2"
+                    Grid.Row="0"
+                    Width="245.78"
+                    Height="257.77"
+                    CornerRadius="20" 
+                    BorderBrush="Black"
+                    BorderThickness="0.5">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding PhotoPath, TargetNullValue={StaticResource NotFoundImage}}" Stretch="UniformToFill">
+
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Image Margin="30,15,57,124" Grid.Row="1">
+                                <Image.Source>
+                                    /Images/Vector 12.png
+                                </Image.Source>
+                            </Image>
+
+                            <TextBlock
+                    Margin="31,293,132,8"
+                    Text="{Binding Name}"
+                    FontSize="18"
+                    FontFamily="Montserrat" 
+                    RenderTransformOrigin="0.5,0.5" 
+                    Grid.ColumnSpan="2" 
+                    Grid.RowSpan="2"
+                    >
+                                <TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-7.169"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+                            <TextBlock
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding Description}"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Width="213"
+                    Height="56"
+                    TextWrapping="Wrap" 
+                    Margin="36,32,36,63"/>
+
+                            <TextBlock
+                    Text="{Binding Cost, StringFormat=0₽}"
+                    FontFamily="Montserrat"
+                    FontSize="28"
+                    Grid.Row="1"
+                    Grid.Column="1" 
+                    Foreground="#FFF6393F" 
+                    Margin="41,76,-42,-74"/>
+
+
+                            <TextBlock
+                    Text="{Binding Weight, StringFormat=0 г.}"
+                    FontFamily="Montserrat"
+                    FontSize="14"
+                    Grid.Row="1"
+                    Grid.Column="1" 
+                    Foreground="Black" 
+                    Margin="88,104,-87,-100" 
+                    RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-4.684"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                            <Button
+                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="2" Margin="62,114,72,-15" Grid.Row="1">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Images/btnAddProductImage.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

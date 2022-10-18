@@ -8,7 +8,7 @@ namespace TuzhilovNazarov_Tortugas.ClassHelper
 {
     public class OrderInfo
     {
-        public int TableID { get; set; }
+        public string Name { get; set; }
         public decimal TotalCost { get; set; }
     }
 }
