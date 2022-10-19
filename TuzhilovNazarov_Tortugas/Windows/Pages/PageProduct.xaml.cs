@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TuzhilovNazarov_Tortugas.ClassHelper;
 using TuzhilovNazarov_Tortugas.EF;
+using TuzhilovNazarov_Tortugas.Windows.Pages;
 
 namespace TuzhilovNazarov_Tortugas.Pages
 {
@@ -39,13 +40,13 @@ namespace TuzhilovNazarov_Tortugas.Pages
             lvProduct.SelectedItem = (sender as Button).DataContext;
 
             var product = lvProduct.SelectedItem as Product;
-
             var searchProduct = PreOrderData.pres.FirstOrDefault(p => p.Name == product.Name);
 
             if (searchProduct != null)
             {
                 searchProduct.Count += 1;
-                searchProduct.Cost += searchProduct.Cost;
+                searchProduct.Cost += product.Cost;
+                searchProduct.Weight += product.Weight;
                 PreOrderData.pres.RemoveAll(p => p.Name == product.Name);
                 PreOrderData.pres.Add(searchProduct);
             }

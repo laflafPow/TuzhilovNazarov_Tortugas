@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TuzhilovNazarov_Tortugas.ClassHelper;
+using TuzhilovNazarov_Tortugas.EF;
 
 namespace TuzhilovNazarov_Tortugas.Windows.Pages
 {
@@ -25,6 +26,54 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
         {
             InitializeComponent();
 
+            Filter();
+        }
+
+        private void btnRemoveToOrder_Click(object sender, RoutedEventArgs e)
+        {
+            lvOrder.SelectedItem = (sender as Button).DataContext;
+
+            var preOrder = lvOrder.SelectedItem as PreOrder;
+            var searchPreOrder = PreOrderData.pres.FirstOrDefault(p => p.Name == preOrder.Name);
+            var product = AppData.Context.Product.FirstOrDefault(p => p.Name == preOrder.Name);
+
+            if (searchPreOrder != null && searchPreOrder.Count > 1)
+            {
+                searchPreOrder.Count -= 1;
+                searchPreOrder.Cost -= product.Cost;
+                searchPreOrder.Weight -= product.Weight;
+                PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
+                PreOrderData.pres.Add(searchPreOrder);
+                Filter();
+            }
+            else
+            {
+                PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
+                Filter();
+            }
+        }
+
+        private void btnAddToOrder_Click(object sender, RoutedEventArgs e)
+        {
+            lvOrder.SelectedItem = (sender as Button).DataContext;
+
+            var preOrder = lvOrder.SelectedItem as PreOrder;
+            var searchPreOrder = PreOrderData.pres.FirstOrDefault(p => p.Name == preOrder.Name);
+            var product = AppData.Context.Product.FirstOrDefault(p => p.Name == preOrder.Name);
+
+            if (searchPreOrder != null)
+            {
+                searchPreOrder.Count += 1;
+                searchPreOrder.Cost += product.Cost;
+                searchPreOrder.Weight += product.Weight;
+                PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
+                PreOrderData.pres.Add(searchPreOrder);
+                Filter();
+            }
+        }
+
+        void Filter()
+        {
             lvOrder.ItemsSource = PreOrderData.pres;
             tbTotalCost.Text = $"Итоговая цена: {OrderInfoData.orderInfos.First().TotalCost}";
             tbTableNumber.Text = $"Номер столика: {OrderInfoData.orderInfos.First().Name}";

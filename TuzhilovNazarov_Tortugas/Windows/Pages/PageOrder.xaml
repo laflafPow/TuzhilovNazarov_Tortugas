@@ -134,13 +134,13 @@
                                 </TextBlock.RenderTransform>
                             </TextBlock>
                             <Button
-                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-30,124,21,-5" Grid.Row="1">
+                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-30,124,21,-5" Grid.Row="1" Click="btnAddToOrder_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/btnAddProductImage.png" Stretch="Uniform"/>
                                 </Button.Background>
                             </Button>
                             <Button
-                    x:Name="btnAddToOrder_Copy" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="21,124,-30,-5" Grid.Row="1" Grid.Column="1">
+                                x:Name="btnRemoveToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="21,124,-30,-5" Grid.Row="1" Grid.Column="1" Click="btnRemoveToOrder_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/Minus.png" Stretch="Uniform"/>
                                 </Button.Background>
