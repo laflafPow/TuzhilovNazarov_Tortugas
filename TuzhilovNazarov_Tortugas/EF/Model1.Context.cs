@@ -29,7 +29,9 @@ namespace TuzhilovNazarov_Tortugas.EF
     
         public virtual DbSet<CategoryProduct> CategoryProduct { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<PayType> PayType { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductOrder> ProductOrder { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Table> Table { get; set; }
     

@@ -49,6 +49,9 @@ namespace TuzhilovNazarov_Tortugas.Pages
                 searchProduct.Weight += product.Weight;
                 PreOrderData.pres.RemoveAll(p => p.Name == product.Name);
                 PreOrderData.pres.Add(searchProduct);
+                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost };
+                OrderInfoData.orderInfos.RemoveAt(0);
+                OrderInfoData.orderInfos.Add(orderInfo);
             }
             else
             {

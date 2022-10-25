@@ -17,7 +17,7 @@ namespace TuzhilovNazarov_Tortugas.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.Product = new HashSet<Product>();
+            this.ProductOrder = new HashSet<ProductOrder>();
         }
     
         public int ID { get; set; }
@@ -25,9 +25,11 @@ namespace TuzhilovNazarov_Tortugas.EF
         public System.DateTime TimeOrder { get; set; }
         public decimal TotalCost { get; set; }
         public bool IsClosed { get; set; }
+        public int PayTypeID { get; set; }
     
+        public virtual PayType PayType { get; set; }
         public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
     }
 }

@@ -12,26 +12,18 @@ namespace TuzhilovNazarov_Tortugas.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class PayType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public PayType()
         {
-            this.ProductOrder = new HashSet<ProductOrder>();
+            this.Order = new HashSet<Order>();
         }
     
         public int ID { get; set; }
-        public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public int CategoryProductID { get; set; }
-        public string Description { get; set; }
-        public decimal Weight { get; set; }
-        public decimal Discount { get; set; }
-        public bool IsActive { get; set; }
-        public string PhotoPath { get; set; }
+        public string PayType1 { get; set; }
     
-        public virtual CategoryProduct CategoryProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

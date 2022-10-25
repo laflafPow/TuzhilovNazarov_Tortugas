@@ -84,7 +84,7 @@
                     Grid.Row="1"
                     Grid.Column="1" 
                     Foreground="#FFF6393F" 
-                    Margin="41,76,-42,-74"/>
+                    Margin="41,76,-42,27"/>
 
 
                 <TextBlock
@@ -94,7 +94,7 @@
                     Grid.Row="1"
                     Grid.Column="1" 
                     Foreground="Black" 
-                    Margin="88,104,-87,-100" 
+                    Margin="83,105,-82,30" 
                     RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
@@ -112,7 +112,7 @@
                     </Button.Background>
                 </Button>
                 <Button
-                    x:Name="btnAddToOrder_Copy" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="21,124,-30,-5" Grid.Row="1" Grid.Column="1">
+                    x:Name="btnAddToOrder_Copy" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="88,124,26,-5" Grid.Row="1" Grid.Column="1">
                     <Button.Background>
                         <ImageBrush ImageSource="/Images/Minus.png" Stretch="Uniform"/>
                     </Button.Background>
@@ -123,7 +123,7 @@
                     FontSize="18"
                     FontFamily="Montserrat" 
                     Grid.ColumnSpan="2" 
-                    Margin="103,124,41,-274"
+                    Margin="103,124,122,-274"
                     Grid.Row="1" />
 
                 <TextBlock
@@ -131,7 +131,7 @@
                     Text="{Binding Count}"
                     FontSize="18"
                     FontFamily="Montserrat" 
-                    Margin="31,124,-30,-274"
+                    Margin="31,124,62,-5"
                     Grid.Row="1" Grid.Column="1" />
             </Grid>
         </Border>

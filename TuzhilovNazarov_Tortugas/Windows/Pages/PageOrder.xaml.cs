@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TuzhilovNazarov_Tortugas.ClassHelper;
 using TuzhilovNazarov_Tortugas.EF;
+using TuzhilovNazarov_Tortugas.Pages;
 
 namespace TuzhilovNazarov_Tortugas.Windows.Pages
 {
@@ -25,6 +26,9 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
         public PageOrder()
         {
             InitializeComponent();
+            cbPaymentMethod.ItemsSource = ClassHelper.AppData.Context.PayType.ToList();
+            cbPaymentMethod.DisplayMemberPath = "PayType1";
+            cbPaymentMethod.SelectedIndex = 0;
 
             Filter();
         }
@@ -44,13 +48,18 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
                 searchPreOrder.Weight -= product.Weight;
                 PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
                 PreOrderData.pres.Add(searchPreOrder);
-                Filter();
+                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost - product.Cost };
+                OrderInfoData.orderInfos.RemoveAt(0);
+                OrderInfoData.orderInfos.Add(orderInfo);
             }
             else
             {
                 PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
-                Filter();
+                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost - product.Cost };
+                OrderInfoData.orderInfos.RemoveAt(0);
+                OrderInfoData.orderInfos.Add(orderInfo);
             }
+            Filter();
         }
 
         private void btnAddToOrder_Click(object sender, RoutedEventArgs e)
@@ -68,15 +77,76 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
                 searchPreOrder.Weight += product.Weight;
                 PreOrderData.pres.RemoveAll(p => p.Name == preOrder.Name);
                 PreOrderData.pres.Add(searchPreOrder);
-                Filter();
+                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost };
+                OrderInfoData.orderInfos.RemoveAt(0);
+                OrderInfoData.orderInfos.Add(orderInfo);
             }
+            Filter();
         }
 
         void Filter()
         {
+            lvOrder.ItemsSource = null;
             lvOrder.ItemsSource = PreOrderData.pres;
-            tbTotalCost.Text = $"Итоговая цена: {OrderInfoData.orderInfos.First().TotalCost}";
-            tbTableNumber.Text = $"Номер столика: {OrderInfoData.orderInfos.First().Name}";
+            var orderInfo = OrderInfoData.orderInfos.Count();
+
+            if (orderInfo != 0)
+            {
+                tbTotalCost.Text = $"Итоговая цена: {OrderInfoData.orderInfos.First().TotalCost}";
+                tbTableNumber.Text = $"Номер столика: {OrderInfoData.orderInfos.First().Name}";
+            }        
+        }
+
+        private void btnPay_Click(object sender, RoutedEventArgs e)
+        {
+            EF.Order order = new Order();
+
+            var orderInfo = OrderInfoData.orderInfos.Count();
+            var presInfo = PreOrderData.pres.Count();
+
+            if (orderInfo != 0 && OrderInfoData.orderInfos.First().TotalCost != 0)
+            {
+                string tablename = OrderInfoData.orderInfos.First().Name;
+                var table = AppData.Context.Table.FirstOrDefault(p => p.Name == tablename);
+                order.TableID = table.ID;
+                order.TimeOrder = DateTime.Now;
+                order.TotalCost = OrderInfoData.orderInfos[0].TotalCost;
+                order.PayTypeID = (cbPaymentMethod.SelectedItem as EF.PayType).ID;
+                AppData.Context.Order.Add(order);
+            }
+            else
+            {
+                MessageBox.Show("Заказ не добавлен. Выберите столик и закажите еды!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (presInfo != 0)
+            {
+                foreach (var item in PreOrderData.pres)
+                {
+                    EF.ProductOrder productOrder = new ProductOrder();
+                    var product = AppData.Context.Product.FirstOrDefault(p => p.Name == item.Name);
+                    productOrder.ProductID = product.ID;
+                    productOrder.OrderID = order.ID;
+                    AppData.Context.ProductOrder.Add(productOrder);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заказ не добавлен. Выберите столик и закажите еды!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+          
+            ClassHelper.AppData.Context.SaveChanges();
+
+            MessageBox.Show("Заказ добавлен! Ожидайте", "Удача", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            OrderInfoData.orderInfos.Clear();
+            PreOrderData.pres.Clear();
+
+            PageChooseTable page = new PageChooseTable();
+            NavigationService.Navigate(page);
         }
     }
 }
