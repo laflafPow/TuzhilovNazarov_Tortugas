@@ -38,13 +38,26 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
             if (lvTables.SelectedItem is EF.Table)
             {
                 var table = lvTables.SelectedItem as EF.Table;
+                var orderInfoCount = OrderInfoData.orderInfos.Count();
 
-                var orderInfo = new OrderInfo { Name = table.Name, TotalCost = 0 };
-                OrderInfoData.orderInfos.Add(orderInfo);
-                              
+                if (orderInfoCount == 0)
+                {
+                    var orderInfo = new OrderInfo { Name = table.Name, TotalCost = 0 };
+                    OrderInfoData.orderInfos.Add(orderInfo);
+                }
+                else
+                {
+                    var orderInfo = new OrderInfo { Name = table.Name, TotalCost = OrderInfoData.orderInfos.Last().TotalCost };
+                    OrderInfoData.orderInfos.Clear();
+                    OrderInfoData.orderInfos.Add(orderInfo);
+
+                }
+
                 PageCategoryProduct page = new PageCategoryProduct();
                 NavigationService.Navigate(page);
             }
         }
+
+
     }
 }

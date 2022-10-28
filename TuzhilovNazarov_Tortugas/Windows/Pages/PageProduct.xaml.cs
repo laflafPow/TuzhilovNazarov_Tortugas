@@ -55,12 +55,19 @@ namespace TuzhilovNazarov_Tortugas.Pages
             }
             else
             {
-                var preorder = new PreOrder { Name = product.Name, Cost = product.Cost, Count = 1, Description = product.Description, PhotoPath = product.PhotoPath, Weight = product.Weight };
-                ClassHelper.PreOrderData.pres.Add(preorder);
-
-                var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost };
-                OrderInfoData.orderInfos.RemoveAt(0);
-                OrderInfoData.orderInfos.Add(orderInfo);
+                var orderInfoCount = OrderInfoData.orderInfos.Count();
+                if (orderInfoCount == 0)
+                {
+                    MessageBox.Show("Выберите столик!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    var preorder = new PreOrder { Name = product.Name, Cost = product.Cost, Count = 1, Description = product.Description, PhotoPath = product.PhotoPath, Weight = product.Weight };
+                    ClassHelper.PreOrderData.pres.Add(preorder);
+                    var orderInfo = new OrderInfo { Name = OrderInfoData.orderInfos.First().Name, TotalCost = OrderInfoData.orderInfos.First().TotalCost + product.Cost };
+                    OrderInfoData.orderInfos.RemoveAt(0);
+                    OrderInfoData.orderInfos.Add(orderInfo);
+                }
             }            
         }
     }

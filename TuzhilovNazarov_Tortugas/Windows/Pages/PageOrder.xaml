@@ -134,16 +134,13 @@
                                 </TextBlock.RenderTransform>
                             </TextBlock>
                             <Button
-                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-30,124,21,-5" Grid.Row="1"
-                                Click="btnAddToOrder_Click">
+                                x:Name="btnAddToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="94,124,20,-5" Grid.Row="1" Grid.Column="1" Click="btnAddToOrder_Click"  RenderTransformOrigin="1.907,0.685">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/btnAddProductImage.png" Stretch="Uniform"/>
                                 </Button.Background>
                             </Button>
                             <Button
-                    x:Name="btnRemoveToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="88,124,26,-5" Grid.Row="1" Grid.Column="1"
-                                Click="btnRemoveToOrder_Click">
-
+                    x:Name="btnRemoveToOrder" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="20,124,93,-5" Grid.Row="1" Click="btnRemoveToOrder_Click">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Images/Minus.png" Stretch="Uniform"/>
                                 </Button.Background>
@@ -184,7 +181,7 @@
             Grid.Column="1"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            Text="Номер столика: 0 р."
+            Text="Номер столика: "
             FontSize="20"/>
         <StackPanel 
             Grid.Row="2"
