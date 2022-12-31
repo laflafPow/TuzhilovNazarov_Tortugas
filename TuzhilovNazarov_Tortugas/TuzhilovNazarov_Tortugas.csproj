@@ -98,6 +98,7 @@
     <Compile Include="ClassHelper\PreOrder.cs" />
     <Compile Include="ClassHelper\OrderInfo.cs" />
     <Compile Include="ClassHelper\PreOrderData.cs" />
+    <Compile Include="ClassHelper\TotalCostMethods.cs" />
     <Compile Include="EF\CategoryProduct.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

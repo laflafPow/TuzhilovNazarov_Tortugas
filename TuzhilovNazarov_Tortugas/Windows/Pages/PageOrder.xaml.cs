@@ -92,7 +92,7 @@ namespace TuzhilovNazarov_Tortugas.Windows.Pages
 
             if (orderInfo != 0)
             {
-                tbTotalCost.Text = $"Итоговая цена: {OrderInfoData.orderInfos.First().TotalCost}";
+                tbTotalCost.Text = $"Итоговая цена: {TotalCostMethods.FifthSaturdayDiscount(DateTime.Now, OrderInfoData.orderInfos.First().TotalCost)}";
                 tbTableNumber.Text = $"Номер столика: {OrderInfoData.orderInfos.First().Name}";
             }        
         }
